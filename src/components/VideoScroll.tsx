@@ -67,9 +67,9 @@ export function VideoScroll({ children }: VideoScrollProps) {
             if (!video.paused) video.pause();
 
             if ('fastSeek' in video) {
-                (video as any).fastSeek(targetTime);
+                (video as HTMLVideoElement).fastSeek(targetTime);
             } else {
-                video.currentTime = targetTime;
+                (video as HTMLVideoElement).currentTime = targetTime;
             }
         }
     });

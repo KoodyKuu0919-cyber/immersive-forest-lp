@@ -9,7 +9,7 @@ import sesameWh from './assets/sesame-white.png';
 import hubBk from './assets/hub-black.png';
 import hubWh from './assets/hub-white.png';
 
-import { Cpu, Wifi, Zap, Sparkles, MoveDown, Lock, Radio } from 'lucide-react';
+import { Cpu, Wifi, Sparkles, MoveDown, Lock, Radio } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 function App() {

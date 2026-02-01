@@ -1,1 +1,1 @@
-{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/foresttunnel.tsx","./src/components/mouseparticles.tsx","./src/components/scene.tsx","./src/components/scrollsection.tsx","./src/components/videoscroll.tsx"],"errors":true,"version":"5.9.3"}
+{"root":["./src/app.tsx","./src/main.tsx","./src/vite-env.d.ts","./src/components/foresttunnel.tsx","./src/components/mouseparticles.tsx","./src/components/scene.tsx","./src/components/scrollsection.tsx","./src/components/videoscroll.tsx"],"version":"5.9.3"}

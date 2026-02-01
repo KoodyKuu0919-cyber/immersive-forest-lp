@@ -18,8 +18,6 @@ export function ForestTunnel() {
                 blur="1px"
                 scaleRange={[1, 1.2]}
                 color="#1a4435" // forest-900
-                svgPath="M0,100 L20,0 L40,100 L60,20 L80,100 L100,10"
-                offsetY={20}
             />
 
             {/* Middle Layer - Bushes/Small Trees */}
@@ -30,8 +28,6 @@ export function ForestTunnel() {
                 blur="2px"
                 scaleRange={[1.1, 1.5]}
                 color="#0d251d" // forest-950
-                svgPath="M0,100 Q20,50 40,100 T80,100 T120,100"
-                offsetY={40}
             />
 
             {/* Front Layer - Passing Branches (Sides) */}
@@ -46,9 +42,7 @@ function ForestLayer({
     opacity,
     blur,
     scaleRange,
-    color,
-    svgPath,
-    offsetY
+    color
 }: {
     scrollY: MotionValue<number>;
     speed: number;
@@ -56,14 +50,11 @@ function ForestLayer({
     blur: string;
     scaleRange: [number, number];
     color: string;
-    svgPath: string;
-    offsetY: number;
 }) {
     const y = useTransform(scrollY, [0, 1], ["0%", `-${speed * 50}%`]);
     const scale = useTransform(scrollY, [0, 1], scaleRange);
 
     // Repeat the pattern to cover width
-    const points = "0,100 20,40 40,100 60,30 80,100 100,50 120,100";
 
     return (
         <motion.div
