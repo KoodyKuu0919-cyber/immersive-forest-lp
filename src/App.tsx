@@ -218,7 +218,7 @@ function App() {
             </ScrollSection>
 
             <footer className="py-12 text-center text-forest-400/40 text-[10px] tracking-[0.3em] uppercase relative z-10 bottom-0 w-full mix-blend-plus-lighter">
-                &copy; 2026 CANDY HOUSE Inc. All Rights Reserved.
+                &copy; 2026 @koodykuuai9 All Rights Reserved.
             </footer>
         </main>
     )

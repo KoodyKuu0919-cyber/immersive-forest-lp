@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    background: #000;
+  }
+
   body {
     @apply bg-transparent text-forest-50 antialiased;
     font-feature-settings: "palt";

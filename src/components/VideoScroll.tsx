@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useScroll, useSpring, useTransform, useAnimationFrame, useVelocity } from 'framer-motion';
 import videoSrc from '../assets/forest.mp4';
 
@@ -24,26 +24,46 @@ export function VideoScroll({ children }: VideoScrollProps) {
     // Smooth out the scroll value
     const smoothProgress = useSpring(scrollYProgress, { stiffness: 50, damping: 20, mass: 0.5 });
 
-    // Handle video metadata load
-    useEffect(() => {
+    // Hybrid Control Loop
+    useAnimationFrame(() => {
         const video = videoRef.current;
-        if (!video) return;
+        // Allow running even if duration is 0? No, need duration.
+        if (!video || !duration) return;
 
-        const handleLoadedMetadata = () => {
-            setDuration(video.duration);
-        };
+        const currentSmooth = smoothProgress.get();
+        const targetTime = currentSmooth * (duration - 0.1);
+        const diff = targetTime - video.currentTime;
 
-        if (video.readyState >= 1) {
+        const SYNC_THRESHOLD = 0.05;
+        const JUMP_THRESHOLD = 1.0;
+
+        if (Math.abs(diff) < SYNC_THRESHOLD) {
+            if (!video.paused) video.pause();
+        } else if (diff > 0 && diff < JUMP_THRESHOLD) {
+            const rate = Math.min(Math.max(diff * 15, 1), 16);
+            video.playbackRate = rate;
+            if (video.paused) video.play();
+        } else {
+            if (!video.paused) video.pause();
+            if ('fastSeek' in video) {
+                (video as HTMLVideoElement).fastSeek(targetTime);
+            } else {
+                (video as HTMLVideoElement).currentTime = targetTime;
+            }
+        }
+    });
+
+    // Handle video metadata load via callbacks
+    const handleLoadedMetadata = () => {
+        const video = videoRef.current;
+        if (video) {
             setDuration(video.duration);
         }
+    };
 
-        video.addEventListener('loadedmetadata', handleLoadedMetadata);
-
-        // Force load if needed
-        video.preload = "auto";
-
-        return () => video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-    }, []);
+    const handleError = (e: any) => {
+        console.error("Video load error:", e);
+    };
 
     // Hybrid Control Loop
     useAnimationFrame(() => {
@@ -90,8 +110,11 @@ export function VideoScroll({ children }: VideoScrollProps) {
                     className="w-full h-full object-cover"
                     playsInline
                     muted
+                    autoPlay // key for mobile/initial frame
                     preload="auto"
                     loop={false}
+                    onLoadedMetadata={handleLoadedMetadata}
+                    onError={handleError}
                 />
 
                 {/* Overlay Content */}
