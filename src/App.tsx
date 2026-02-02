@@ -120,19 +120,19 @@ function App() {
 
             {/* Product Recommendations */}
             <ScrollSection persistAtEnd={true}>
-                <div className="w-full max-w-6xl flex flex-col items-center">
-                    <div className="text-center mb-16 bg-black/50 backdrop-blur-md px-10 py-6 rounded-full border border-white/10 inline-block mx-auto shadow-lg">
-                        <h2 className="font-serif text-3xl tracking-[0.2em] mb-3 text-white">RECOMMENDED DEVICES</h2>
-                        <div className="flex items-center justify-center gap-3 text-forest-300">
-                            <Sparkles size={16} className="animate-pulse" />
-                            <span className="text-xs uppercase tracking-widest font-medium">Upgrade Your Life</span>
+                <div className="w-full max-w-6xl flex flex-col items-center pb-20 md:pb-0">
+                    <div className="text-center mb-8 md:mb-16 bg-black/50 backdrop-blur-md px-6 py-4 md:px-10 md:py-6 rounded-full border border-white/10 inline-block mx-auto shadow-lg">
+                        <h2 className="font-serif text-xl md:text-3xl tracking-[0.2em] mb-2 md:mb-3 text-white">RECOMMENDED DEVICES</h2>
+                        <div className="flex items-center justify-center gap-2 md:gap-3 text-forest-300">
+                            <Sparkles size={14} className="animate-pulse md:w-4 md:h-4" />
+                            <span className="text-[10px] md:text-xs uppercase tracking-widest font-medium">Upgrade Your Life</span>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 w-full">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-12 w-full">
                         {/* Product 1: SESAME 5 Pro */}
-                        <div className="bg-black/40 backdrop-blur-xl rounded-[2rem] p-8 md:p-12 border border-white/10 hover:border-forest-400/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(74,222,128,0.1)] flex flex-col items-center text-center group">
-                            <div className="mb-8 relative h-64 flex items-center justify-center gap-4">
+                        <div className="bg-black/40 backdrop-blur-xl rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-12 border border-white/10 hover:border-forest-400/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(74,222,128,0.1)] flex flex-col items-center text-center group">
+                            <div className="mb-4 md:mb-8 relative h-40 md:h-64 flex items-center justify-center gap-2 md:gap-4">
                                 <motion.img
                                     src={sesameBk}
                                     alt="SESAME 5 Pro Black"
@@ -152,22 +152,22 @@ function App() {
                                     whileHover={{ scale: 1.1, rotate: 5 }}
                                 />
                             </div>
-                            <h3 className="text-2xl font-serif text-white mb-2">SESAME 5 Pro</h3>
-                            <p className="text-forest-200 text-sm mb-6">究極のスマートロック体験</p>
+                            <h3 className="text-xl md:text-2xl font-serif text-white mb-1 md:mb-2">SESAME 5 Pro</h3>
+                            <p className="text-forest-200 text-xs md:text-sm mb-4 md:mb-6">究極のスマートロック体験</p>
                             <a
                                 href="https://a.r10.to/h5pKlz"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="mt-auto px-8 py-3 min-h-[48px] bg-forest-500/20 hover:bg-forest-500/40 text-forest-100 rounded-full border border-forest-500/50 transition-all flex items-center gap-2"
+                                className="mt-auto px-6 py-2 md:px-8 md:py-3 min-h-[40px] md:min-h-[48px] bg-forest-500/20 hover:bg-forest-500/40 text-forest-100 rounded-full border border-forest-500/50 transition-all flex items-center gap-2 text-sm md:text-base"
                             >
-                                <Lock size={16} />
+                                <Lock size={14} className="md:w-4 md:h-4" />
                                 View on Rakuten
                             </a>
                         </div>
 
                         {/* Product 2: Hub3 */}
-                        <div className="bg-black/40 backdrop-blur-xl rounded-[2rem] p-8 md:p-12 border border-white/10 hover:border-forest-400/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(74,222,128,0.1)] flex flex-col items-center text-center group">
-                            <div className="mb-8 relative h-64 flex items-center justify-center gap-8">
+                        <div className="bg-black/40 backdrop-blur-xl rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-12 border border-white/10 hover:border-forest-400/50 transition-all duration-300 hover:shadow-[0_0_30px_rgba(74,222,128,0.1)] flex flex-col items-center text-center group">
+                            <div className="mb-4 md:mb-8 relative h-40 md:h-64 flex items-center justify-center gap-4 md:gap-8">
                                 <motion.img
                                     src={hubBk}
                                     alt="Hub3 Black"
@@ -187,30 +187,30 @@ function App() {
                                     whileHover={{ scale: 1.1, rotate: 5 }}
                                 />
                             </div>
-                            <h3 className="text-2xl font-serif text-white mb-2">SESAME Hub3</h3>
-                            <p className="text-forest-200 text-sm mb-6">リモート操作で、もっと自由に</p>
+                            <h3 className="text-xl md:text-2xl font-serif text-white mb-1 md:mb-2">SESAME Hub3</h3>
+                            <p className="text-forest-200 text-xs md:text-sm mb-4 md:mb-6">リモート操作で、もっと自由に</p>
                             <a
                                 href="https://a.r10.to/h5919g"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="mt-auto px-8 py-3 min-h-[48px] bg-forest-500/20 hover:bg-forest-500/40 text-forest-100 rounded-full border border-forest-500/50 transition-all flex items-center gap-2"
+                                className="mt-auto px-6 py-2 md:px-8 md:py-3 min-h-[40px] md:min-h-[48px] bg-forest-500/20 hover:bg-forest-500/40 text-forest-100 rounded-full border border-forest-500/50 transition-all flex items-center gap-2 text-sm md:text-base"
                             >
-                                <Radio size={16} />
+                                <Radio size={14} className="md:w-4 md:h-4" />
                                 View on Rakuten
                             </a>
                         </div>
                     </div>
 
                     {/* Consultation Button */}
-                    <div className="mt-16 w-full flex justify-center">
+                    <div className="mt-8 md:mt-16 w-full flex justify-center pb-20 md:pb-0">
                         <a
                             href="https://lin.ee/ahvYrgZ"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="group relative inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-forest-600 to-forest-800 text-white rounded-full text-lg font-medium tracking-wide shadow-xl transition-all duration-300 hover:shadow-[0_0_40px_rgba(34,197,94,0.4)] hover:scale-105 border border-forest-400/30 overflow-hidden"
+                            className="group relative inline-flex items-center gap-2 md:gap-3 px-8 py-4 md:px-10 md:py-5 bg-gradient-to-r from-forest-600 to-forest-800 text-white rounded-full text-base md:text-lg font-medium tracking-wide shadow-xl transition-all duration-300 hover:shadow-[0_0_40px_rgba(34,197,94,0.4)] hover:scale-105 border border-forest-400/30 overflow-hidden"
                         >
                             <span className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-                            <Sparkles className="w-5 h-5 animate-pulse" />
+                            <Sparkles className="w-4 h-4 md:w-5 md:h-5 animate-pulse" />
                             <span className="relative z-10">設置のご相談はこちら</span>
                         </a>
                     </div>
