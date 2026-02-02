@@ -38,6 +38,10 @@ export function VideoScroll({ children }: VideoScrollProps) {
         }
 
         video.addEventListener('loadedmetadata', handleLoadedMetadata);
+
+        // Force load if needed
+        video.preload = "auto";
+
         return () => video.removeEventListener('loadedmetadata', handleLoadedMetadata);
     }, []);
 
@@ -86,6 +90,7 @@ export function VideoScroll({ children }: VideoScrollProps) {
                     className="w-full h-full object-cover"
                     playsInline
                     muted
+                    preload="auto"
                     loop={false}
                 />
 
