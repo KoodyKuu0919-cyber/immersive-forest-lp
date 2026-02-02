@@ -62,10 +62,10 @@ export function ScrollSection({ children, className = "", persistAtEnd = false, 
 
     return (
         <section ref={ref} className={`relative h-[300vh] ${className}`}>
-            <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-y-auto no-scrollbar">
+            <div className="sticky top-0 h-screen w-full flex flex-col overflow-y-auto no-scrollbar">
                 <motion.div
                     style={{ scale, opacity, filter: useTransform(blur, (v) => `blur(${v})`), y }}
-                    className="w-full max-w-4xl px-4 md:px-6 relative z-10 py-10 md:py-0"
+                    className="w-full max-w-4xl px-4 md:px-6 relative z-10 py-10 md:py-0 m-auto"
                 >
                     {children}
                 </motion.div>
